@@ -58,53 +58,43 @@
 *,
 *:after,
 *:before {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: transparent;
-}
+  -webkit-tap-highlight-color: transparent; }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
   font-size: 140%;
   line-height: 1.5;
-  color: #444444;
-  background-color: white;
-}
+  color: #444;
+  background-color: #fff; }
 
 img {
   max-width: 100%;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 a {
-  color: #444444;
-  text-decoration: none;
-}
-a:focus, a:hover {
-  text-decoration: underline;
-}
+  color: #444;
+  text-decoration: none; }
+  a:focus, a:hover {
+    text-decoration: underline; }
 
 input[type="text"],
 input[type="search"] {
   font-size: inherit;
-  line-height: inherit;
-}
+  line-height: inherit; }
 
 ::-moz-selection {
-  background-color: #04a4cc;
-  color: white;
-  text-shadow: none;
-}
+  background-color: #04A4CC;
+  color: #fff;
+  text-shadow: none; }
 
 ::selection {
-  background-color: #04a4cc;
-  color: white;
-  text-shadow: none;
-}
+  background-color: #04A4CC;
+  color: #fff;
+  text-shadow: none; }
 
 /**
  * partials/wordpress
@@ -115,51 +105,43 @@ input[type="search"] {
  * Alignment
  */
 .alignnone {
-  margin: 5px 15px 15px 0;
-}
+  margin: 5px 15px 15px 0; }
 
 .aligncenter {
   display: block;
-  margin: 5px auto;
-}
+  margin: 5px auto; }
 
 .alignright {
   float: right;
-  margin: 5px 0 20px 20px;
-  margin: 5px 0 15px 15px;
-}
+  margin: 5px 0 15px 15px; }
 
 .alignleft {
   float: left;
-  margin: 5px 15px 15px 0;
-}
+  margin: 5px 15px 15px 0; }
 
 /**
  * Gallery & images
  */
 .wp-caption {
-  background: white;
+  background: #fff;
   border: thin solid #F0F0F0;
   max-width: 95%;
   padding: 5px 5px;
-  text-align: center;
-}
-.wp-caption img {
-  width: auto;
-  max-width: 98.5%;
-  height: auto;
-  border: 0 none;
-  padding: 0;
-  margin: 0;
-}
+  text-align: center; }
+  .wp-caption img {
+    width: auto;
+    max-width: 98.5%;
+    height: auto;
+    border: 0 none;
+    padding: 0;
+    margin: 0; }
 
 .wp-caption .wp-caption-text,
 .gallery-caption {
   margin: 0;
   padding: 0 5px 5px;
   font-size: 140%;
-  line-height: 1.5;
-}
+  line-height: 1.5; }
 
 /**
  * partials/utils
@@ -168,16 +150,14 @@ input[type="search"] {
  */
 .clear:before, .clear:after {
   content: " ";
-  display: table;
-}
+  display: table; }
+
 .clear:after {
-  clear: both;
-}
+  clear: both; }
 
 .reset-box {
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
 /**
  * partials/wrapper
@@ -187,11 +167,10 @@ input[type="search"] {
   max-width: 1280px;
   padding: 0 15px;
   margin: 0 auto;
-  position: relative;
-}
+  position: relative; }
 
 /**
- * partial/header
+ * partials/header
  * ---
  */
 /**
@@ -221,60 +200,38 @@ input[type="search"] {
     color: #000 !important;
     /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
+    text-shadow: none !important; }
   a,
   a:visited {
-    text-decoration: underline;
-  }
-
+    text-decoration: underline; }
   a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
+    content: " (" attr(href) ")"; }
   abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
+    content: " (" attr(title) ")"; }
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
-    content: "";
-  }
-
+    content: ""; }
   pre,
   blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
+    page-break-inside: avoid; }
   thead {
     display: table-header-group;
-    /* h5bp.com/t */
-  }
-
+    /* h5bp.com/t */ }
   tr,
   img {
-    page-break-inside: avoid;
-  }
-
+    page-break-inside: avoid; }
   img {
-    max-width: 100% !important;
-  }
-
+    max-width: 100% !important; }
   p,
   h2,
   h3 {
     orphans: 3;
-    widows: 3;
-  }
-
+    widows: 3; }
   h2,
   h3 {
-    page-break-after: avoid;
-  }
-}
+    page-break-after: avoid; } }
