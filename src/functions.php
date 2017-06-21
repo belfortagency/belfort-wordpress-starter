@@ -271,6 +271,24 @@ function enable_threaded_comments()
     }
 }
 
+// Remove menus
+function remove_menus(){  
+  remove_menu_page( 'tools.php' ); //Tools
+}
+
+function remove_dashboard_widgets() {
+  global $wp_meta_boxes;
+  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_drafts']);
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']);
+  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+}
+
 /*------------------------------------*\
     Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -283,6 +301,8 @@ add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
+add_action( 'admin_menu', 'remove_menus' );
+add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
@@ -292,6 +312,8 @@ remove_action('wp_head', 'wlwmanifest_link'); // Display the link to the Windows
 remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action( 'welcome_panel', 'wp_welcome_panel' );
+
 
 // Add Filters
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
