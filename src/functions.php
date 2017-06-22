@@ -273,9 +273,18 @@ function enable_threaded_comments()
 
 // Remove menus
 function remove_menus(){  
+  global $submenu;
   remove_menu_page( 'tools.php' ); //Tools
+  remove_menu_page( 'edit-comments.php' ); //Comments
+  remove_menu_page( 'options-discussion.php' );
+  remove_menu_page( 'options-writing.php' );
+  remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+  remove_submenu_page( 'themes.php', 'widgets.php' );
+  unset($submenu['themes.php'][6]);
+  unset($submenu['themes.php'][5]);
 }
 
+// Remove dashboard widgets
 function remove_dashboard_widgets() {
   global $wp_meta_boxes;
   unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
@@ -288,6 +297,21 @@ function remove_dashboard_widgets() {
   unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
   unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 }
+
+// Remove admin bar icons
+function my_admin_bar_render() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+}
+
+// Remove wordpress logo from admin bar
+function annointed_admin_bar_remove() {
+        global $wp_admin_bar;
+
+        /* Remove their stuff */
+        $wp_admin_bar->remove_menu('wp-logo');
+}
+
 
 /*------------------------------------*\
     Actions + Filters + ShortCodes
@@ -303,6 +327,8 @@ add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline 
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 add_action( 'admin_menu', 'remove_menus' );
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
+add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
+add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
