@@ -1,0 +1,56 @@
+a,button,input[type="button"] {
+  &.btn {
+    border-radius: 3px;
+    padding: 20px 46px;
+    letter-spacing: 1px;
+    font-family: "brandon-grotesque";
+    font-size: 12px;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    color: #fff;
+    background-color: #222;
+    border-color: #222;
+    border-width: 3px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    &:hover {
+      color: #fff;
+    }
+    @media all and (max-width: 767px) {
+      padding: 10px 23px;
+    }
+  }
+  &.primary-btn {
+
+  }
+  &.secondary-btn {
+
+  }
+  &.tertiary-btn {
+
+  }
+  &.view-more {
+    padding: 10px 23px;
+    border: 2px solid $charcoal;
+    background: transparent;
+    color: $charcoal;
+    &:hover {
+      background: $yogurt;
+      color: $charcoal;
+      border-color: $yogurt;
+    }
+  }
+  &.white-btn {
+    border-color: #fff;
+    background-color: transparent;
+    color: #fff;
+    &:hover {
+      background-color: #fff;
+      color: #333;
+    }
+  }
+}

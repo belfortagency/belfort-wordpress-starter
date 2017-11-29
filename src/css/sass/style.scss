@@ -1,3 +1,5 @@
+  
+
 /**
  * styles.scss
  * ---
@@ -9,6 +11,13 @@
 @import "modules/mixins";
 @import "modules/fonts";
 
+@import "modules/tile.scss";
+@import "modules/social.scss";
+@import "modules/capturebar.scss";
+@import "modules/masthead.scss";
+
+@import "modules/buttons.scss";
+
 // Partials
 @import "partials/reset";
 @import "partials/wordpress";
@@ -19,3 +28,76 @@
 @import "partials/sidebar";
 @import "partials/footer";
 @import "partials/print";
+@import "partials/swiper.scss";
+
+// Globals
+section {
+  margin: 120px auto;
+  @media all and (max-width: 767px) {
+    margin: 60px auto;
+  }
+}
+
+.single-article {
+  .inner-container {
+    max-width: 960px;
+    padding: 60px;
+    border: 3px solid $concrete;
+  }
+  @media all and (max-width: 767px) {
+    .inner-container {
+      padding: 30px;
+    }
+  }
+}
+
+article {
+  position: relative;
+  .article__thumbnail {
+    position: relative;
+  }
+  .excerpt {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    background: rgba(255,255,255,.8);
+    font-weight: 500;
+    color: $charcoal;
+  }
+  .article__title {
+    margin: 24px auto 24px;
+  }
+}
+
+.page-title {
+  h2 {
+    margin-bottom: 64px;
+  }
+}
+
+.container {
+  max-width: 1080px;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.thumbnails {
+  width: 100%;
+  display: block;
+  clear: both;
+  .thumbnail-item {
+    display: block;
+    width: 20%;
+    float: left;
+    img {
+      width: 100%;
+    }
+  }
+}

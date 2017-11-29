@@ -134,6 +134,11 @@ function remove_category_rel_from_category_list($thelist)
     return str_replace('rel="category tag"', 'rel="tag"', $thelist);
 }
 
+function admin_style() {
+  wp_enqueue_style('admin-styles', get_template_directory_uri().'/css/admin.css', false, '');
+}
+add_action('admin_enqueue_scripts', 'admin_style');
+
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
 function add_slug_to_body_class($classes)
 {

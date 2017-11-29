@@ -1,0 +1,25 @@
+.tiles__module h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 100%; }
+.tiles__module .contain {
+  padding: 16px 0px; }
+
+.tile .tile__image {
+  width: 100%;
+  height: 250px; }
+.tile .tile__image--link {
+  margin-bottom: 15px;
+  display: block; }
+.tile .tile__meta {
+  display: block; }
+  .tile .tile__meta time {
+    opacity: .7;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4em;
+    text-transform: none; }
+  .tile .tile__meta h4 {
+    font-size: 20px;
+    line-height: 1.375em;
+    text-align: left; }

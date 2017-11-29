@@ -1,38 +1,36 @@
+<div class="container">
+	<div class="row">
+		
+
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-	<!-- article -->
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="col-xs-12 col-md-4 text-center">
+		<!-- article -->
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<!-- post thumbnail -->
-		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-				<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
-			</a>
-		<?php endif; ?>
-		<!-- /post thumbnail -->
+			<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+					<div style="width: 100%; height: 460px; background: url('<?php echo get_the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover;" class="article__thumbnail">
+							
+							<div class="excerpt">
+								<?php $excerpt = substr(get_the_excerpt(), 0, 140); echo $excerpt; ?>...
+							</div>
 
-		<!-- post title -->
-		<h2>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-		</h2>
-		<!-- /post title -->
+					</div>
+				</a>
+			<?php endif; ?>
 
-		<!-- post details -->
-		<span class="date">
-			<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-				<?php the_date(); ?> <?php the_time(); ?>
-			</time>
-		</span>
-		<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-		<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-		<!-- /post details -->
+			<h3 class="article__title">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+			</h3>
+			<!-- /post title -->
 
-		<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
 
-		<?php edit_post_link(); ?>
+			<a href="<?php echo get_the_permalink() ?>" class="btn view-more">View Article</a>
 
-	</article>
-	<!-- /article -->
+		</article>
+
+	</div>
 
 <?php endwhile; ?>
 
@@ -45,3 +43,7 @@
 	<!-- /article -->
 
 <?php endif; ?>
+
+
+</div>
+</div>

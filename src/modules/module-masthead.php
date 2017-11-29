@@ -1,27 +1,7 @@
-<?php get_header(); ?>
-
-<?php 
-
-$category = get_the_category(); 
-
-if (count($category) === 0) { ?>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 text-center">
-      <h2 style="margin-top: 160px;">Uh oh, there's nothing here</h2>
-      <a href="<?php echo site_url(); ?>/categories"><- Head back to categories</a>
-    </div>
-  </div>
-</div>
-
-<?php } else { ?>
-
 <div class="swiper-container">
   <div class="swiper-wrapper">
       <?php
-
-      $query = new WP_Query( array( 'cat' => $category[0]->cat_ID ) );
+      $query = new WP_Query( array( 'cat' => 2 ) );
 
       if ( $query->have_posts() ) { while ( $query->have_posts() ) { $query->the_post(); ?>
 
@@ -45,18 +25,3 @@ if (count($category) === 0) { ?>
   </div>
   <div class="swiper-pagination"></div>
 </div>
-
-<section>
-<div class="container page-title">
-  <div class="row">
-    <div class="col-xs-12 text-center">
-      <h2><?php echo $category[0]->name ?></h2>
-    </div>
-  </div>
-</div>
-
-<?php get_template_part('loop'); ?>
-</section>
-<?php } ?>
-
-<?php get_footer(); ?>

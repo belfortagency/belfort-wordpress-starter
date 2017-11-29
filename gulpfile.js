@@ -82,8 +82,19 @@ gulp.task( "sass", function () {
 		.pipe( gulp.dest( "src/css" ) );
 });
 
+gulp.task( "admin", function () {
+	return gulp.src( "src/css/sass/admin.scss" )
+		.pipe( $.sourcemaps.init() )
+		.pipe( $.sass() )
+		.pipe( $.sourcemaps.write( "." ) )
+		.on( "error", function( e ) {
+			console.error( e );
+		})
+		.pipe( gulp.dest( "src/css" ) );
+});
+
 /** STYLES */
-gulp.task( "styles", [ "sass" ], function() {
+gulp.task( "styles", [ "sass", "admin" ], function() {
 	console.log( "`styles` task run in `" + env + "` environment" );
 
 	var stream = gulp.src( cssminSrc[ env ] )
@@ -134,7 +145,7 @@ gulp.task( "envProduction", function() {
 });
 
 /** Livereload */
-gulp.task( "watch", [ "template", "styles", "jshint" ], function() {
+gulp.task( "watch", [ "template", "styles" ], function() {
 	var server = $.livereload;
 	server.listen();
 
@@ -155,7 +166,6 @@ gulp.task( "watch", [ "template", "styles", "jshint" ], function() {
 	], [ "styles" ] );
 
 	/** Watch for JSHint */
-	gulp.watch( "src/js/{!(lib)/*.js,*.js}", ["jshint"] );
 });
 
 /** Build */
@@ -164,7 +174,6 @@ gulp.task( "build", [
 	"clean",
 	"template",
 	"styles",
-	"jshint",
 	"copy",
 	"uglify"
 ], function () {

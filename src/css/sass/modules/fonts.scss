@@ -17,3 +17,54 @@
   font-style: normal;
 }
 */
+
+* {
+  font-family: "brandon-grotesque";
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: 0em;
+  line-height: 1em;
+  font-family: "brandon-grotesque";
+  font-style: normal;
+  font-size: 36px;
+  letter-spacing: .18em;
+  line-height: 1.45em;
+  text-transform: uppercase;
+  @media all and (max-width: 767px) {
+    font-size: 24px;
+  }
+}
+
+h2 {
+  font-size: 26px;
+  letter-spacing: 0em;
+  text-transform: none;
+  font-family: "brandon-grotesque";
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+h3 {
+  line-height: 1.2;
+}
+
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-top: 40px;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-white {
+  color: #fff;
+}

@@ -1,0 +1,17 @@
+.capture-bar {
+  text-align: center;
+  padding: 120px 0px;
+  @media all and (max-width: 767px) {
+    padding: 60px 0px;
+  }
+  .capture__title {
+    color: $charcoal;
+    margin-bottom: 32px;
+  }
+  .capture__meta {
+    display: inline-block;
+    padding: 60px;
+    background: rgba(255,255,255,.7);
+  }
+}
+

@@ -1,0 +1,56 @@
+html body .layout {
+  background: #fff !important; }
+  html body .layout .acf-field {
+    background: #f5f5f6 !important;
+    padding: 20px 40px !important; }
+  html body .layout .acf-repeater .acf-field {
+    background: #fff !important; }
+    html body .layout .acf-repeater .acf-field .button {
+      margin-top: 0px !important; }
+  html body .layout .acf-repeater .acf-fields {
+    background: #fff !important; }
+  html body .layout:hover .acf-fc-layout-handle {
+    background: #1D385A !important; }
+  html body .layout .acf-fields {
+    background: #f5f5f6 !important; }
+  html body .layout.ui-sortable-placeholder {
+    background: #e8e8e8 !important; }
+  html body .layout .acf-fc-layout-handle {
+    background: #0C2340 !important;
+    color: #fff !important;
+    padding: 24px !important;
+    background: #1D385A !important; }
+    html body .layout .acf-fc-layout-handle.ui-sortable-helper {
+      background: #FF6536 !important; }
+  html body .layout.-collapsed {
+    background: #0C2340 !important;
+    padding: 0px !important; }
+    html body .layout.-collapsed .acf-fc-layout-handle {
+      background: #0C2340 !important; }
+  html body .layout .acf-fc-layout-order {
+    margin: 0px 6px 0px 0px !important; }
+  html body .layout .acf-fc-layout-controlls {
+    top: 24px !important;
+    right: 16px !important; }
+
+html body .acf-icon.-plus {
+  border-color: #7ED321 !important;
+  background: #7ED321 !important;
+  color: #fff !important; }
+
+html body .acf-icon.-collapse:hover {
+  background: #fff !important; }
+
+html body .acf-icon.-minus {
+  border-color: #D0021B !important;
+  background: #D0021B !important;
+  color: #fff !important; }
+
+html body .acf-button.button {
+  padding: 16px 48px;
+  border-radius: 64px;
+  margin-top: 16px;
+  height: auto !important;
+  line-height: 100% !important; }
+
+/*# sourceMappingURL=admin.css.map */

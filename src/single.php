@@ -2,70 +2,102 @@
 
 	<main role="main" aria-label="Content">
 	<!-- section -->
-	<section>
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="swiper-slide" style="background: url('<?php echo get_the_post_thumbnail_url($post->ID, "full"); ?>') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; background-attachment: fixed;">
+        <section class="masthead masthead--image" >
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <div class="masthead__meta">
+                  <h4><?php $cat = get_the_category(); print_r($cat[0]->name); ?></h4>
+                  <h1 class="masthead__title"><?php echo get_the_title(); ?></h1>
+                  <!-- <a href="<?php echo get_the_permalink(); ?>" class="btn">Read More</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
 
-			<!-- post details -->
-			<span class="date">
-				<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-					<?php the_date(); ?> <?php the_time(); ?>
-				</time>
-			</span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
+						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              <div class="single-article">
+                <div class="container inner-container">
+    							<h1><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
-			<?php the_content(); // Dynamic Content ?>
+    							<span class="date">
+    								<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
+    									<?php the_date(); ?> <?php the_time(); ?>
+    								</time>
+    							</span>
 
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+    							<?php the_content(); ?>
+                </div>
+              </div>
 
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
+              <div class="share-post">
+                <ul>
+                  <li>
+                    Share This:
+                  </li>
+                  <li>
+                    <a href="" class="circle">
+                      <i class="ion-social-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="circle">
+                      <i class="ion-social-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="circle">
+                      <i class="ion-social-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="circle">
+                      <i class="ion-social-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
+              <?php include('modules/recent-posts.php'); ?>
 
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
-			<?php comments_template(); ?>
+  						<?php comments_template(); ?>
 
-		</article>
-		<!-- /article -->
+						</article>
 
-	<?php endwhile; ?>
 
-	<?php else: ?>
 
-		<!-- article -->
-		<article>
+					<?php endwhile; ?>
 
-			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+					<?php else: ?>
 
-		</article>
-		<!-- /article -->
+						<article>
 
-	<?php endif; ?>
+							<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
 
-	</section>
-	<!-- /section -->
+						</article>
+
+					<?php endif; ?>
+
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 
-<?php get_sidebar(); ?>
+
+
 
 <?php get_footer(); ?>
